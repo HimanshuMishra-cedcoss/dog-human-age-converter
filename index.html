@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dog age converter</title>
+	<style type="text/css">
+		.bgimg{
+			background-image: url(dog3.jpg);
+			background-position: relative;
+			height: 650px;
+			background-size: cover;
+			width: 100%;
+			border:1px solid black;
+		}
+		.formbg{
+			margin-top: 16%;
+			margin-right: 30%;
+			margin-left: 30%;
+			border :3px dashed red;
+		}
+		form{
+			text-align: center;
+			padding: 10%;
+		}
+		h1{
+			margin-top: 10;"
+		}
+	</style>
+</head>
+<body>
+<div class="bgimg">
+	<h1 align="center">DOG AGE CALCULATOR</h1>
+	<div class="formbg">
+
+	<form>
+		<b style="font-size: 20px;"><label>Enter Human Age in years </label></b>
+		<input type="number" id="humanage" >
+		<br><br>
+		<b><label style="font-size: 20px;"> Human Age in Months</label></b>
+		<input type="number" id="hmonth">
+		<br><br>
+		<input style="font-size: 20px; margin-right: 50px;" type="button" name="" value="convert it" onclick="dogAge()">
+		<input style="font-size: 20px; margin-left: 50px;" type="reset"  >
+		<br><br>
+		<b><label style="font-size: 20px;"> Your dog age will be</label></b>
+		<input type="number" id="dogage" >
+		<br><br>
+		<b><label style="font-size: 20px;"> Age in Months</label></b>
+		<input type="number" id="dogmonth" >
+		<br><br>
+		<b><label style="font-size: 20px;"> Age in Days</label></b>
+		<input type="number" id="dogdays" >
+	</form>	
+	</div>	
+</div>
+<script type="text/javascript">
+function dogAge()
+{	
+	var hm;
+	var h= document.getElementById('humanage').value;
+	if(h<21)
+	{	
+		d= h/10.5;
+		document.getElementById('dogage').value= d;
+		hm=document.getElementById('hmonth').value;
+		var dm= (d+hm/12)*12;
+		document.getElementById('dogmonth').value=dm;
+		var dd= d*365;
+		document.getElementById('dogdays').value=dd;
+	}
+	else
+	{
+		var x= document.getElementById('humanage').value ;
+		var y= (((x-21))/4)+2;
+		console.log(y);
+		document.getElementById('dogage').value= y;
+		hm=document.getElementById('hmonth').value;
+		var dm= (y+hm/12)*12;
+		document.getElementById('dogmonth').value=dm;
+		var dd= (y+hm/12)*365;
+		document.getElementById('dogdays').value=dd;
+		
+	}
+	if(hm>12){
+		alert("months cant be more than 12");
+		location.reload();
+	}
+}
+</script>
+</body>
+</html>
